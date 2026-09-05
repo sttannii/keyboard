@@ -95,6 +95,99 @@ For example:
 ## Text Saving
 
 The application can save the entered text to a file named:
-
-```text
 saveViKey.txt
+
+The Save button is disabled when the text field is empty.
+
+After the text is saved, the button becomes disabled until the text is changed again.
+
+Custom UI
+
+The standard JUCE button appearance was replaced with custom rendering.
+
+MyButton implements custom drawing for:
+
+background;
+text;
+rounded corners;
+hover state;
+pressed state.
+
+MyImageButton provides custom rendering for image-based buttons and handles the disabled state of the Save button.
+
+Documentation
+
+Parts of the source code are documented using the Doxygen documentation style.
+
+Documentation comments describe classes, constructors, methods and their parameters.
+
+Example:
+
+/**
+ * @class MainComponent
+ * @brief Main application component containing the virtual keyboard interface.
+ */
+Project Structure
+
+The Visual Studio project is organized into the following main directories:
+
+Project/
+├── Source/
+│   ├── MainComponent.cpp
+│   └── MainFrame.cpp
+│
+├── Include/
+│   ├── MainComponent.h
+│   ├── MainFrame.h
+│   └── Application.h
+│
+├── JuceLibraryCode/
+│   └── JUCE library files and modules
+│
+└── Builds/
+    └── Visual Studio project files
+
+Image resources used by the interface are also included in the project.
+
+Development Challenges
+
+During development, several technical issues were addressed.
+
+ImageButton states
+
+The standard ImageButton mouse-over and mouse-down states did not provide the required visual behavior.
+
+The problem was addressed by overriding the paintButton() method and implementing custom rendering for different button states.
+
+Dynamic positioning
+
+The keyboard elements had to maintain their relative positions when the application window was resized.
+
+The resized() method was used to calculate the positions and dimensions of components dynamically.
+
+Results
+
+The project resulted in a functional GUI virtual keyboard application.
+
+During development, the following skills were practiced:
+
+designing GUI applications;
+working with the JUCE framework;
+creating custom interface components;
+processing user events;
+working with images;
+implementing dynamic layouts;
+saving data to files;
+documenting source code;
+debugging GUI applications.
+Future Improvements
+
+Possible future improvements include:
+
+implementing complete Russian/English keyboard switching;
+adding dynamic switching between numeric and symbol layouts;
+extending the application to support fullscreen virtual keyboard mode;
+adapting the interface for touch devices.
+
+Author
+Татьяна Спиридонова
